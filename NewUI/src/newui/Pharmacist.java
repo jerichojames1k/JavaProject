@@ -16,10 +16,7 @@ import storageData.medicineStorageClass;
  * @author villahermosa_sd2022
  */
 public class Pharmacist extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Pharmacist
-     */
+    ArrayList<String> Medicines = new ArrayList<String>();
     public Pharmacist() {
         initComponents();
     }
@@ -545,13 +542,14 @@ public class Pharmacist extends javax.swing.JFrame {
         view.MedicineInformation();
         view.getMedicines();
         for (String med : view.getMedicines()){
-            if (ListOfInformation.getText().equals(med)) {
-               ListOfInformation.append(med + "\n");
-            } else {
-              continue;
+            if(Medicines.contains(med)){
+                continue;
+            }
+            else{
+              Medicines.add(med); 
+              ListOfInformation.append(med + "\n");
             }
         }
-
     }//GEN-LAST:event_viewMedicineMouseClicked
 
     private void ADDMEDICINEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ADDMEDICINEMouseClicked
