@@ -6,7 +6,10 @@
 package newui;
 
 import javax.swing.JOptionPane;
-import pharmacyStorage.medicineStorageClass;
+//import pharmacyStorage.medicineStorageClass;
+//import storageData.medicineStorageClass;
+import storageData.loginClass;
+import storageData.medicineStorageClass;
 
 /**
  *
@@ -71,6 +74,8 @@ public class medicineFrame extends javax.swing.JFrame {
         MONEYPAYMENT = new javax.swing.JButton();
         MONEYBALANCE = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        label4 = new java.awt.Label();
+        DELETE_TEXT = new javax.swing.JButton();
 
         Login_UserName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -297,6 +302,7 @@ public class medicineFrame extends javax.swing.JFrame {
 
         checkbox2.setLabel("checkbox2");
 
+        MedicineListArea.setEditable(false);
         MedicineListArea.setColumns(20);
         MedicineListArea.setRows(5);
         MedicineListArea.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -343,6 +349,16 @@ public class medicineFrame extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Your Money Change:");
 
+        label4.setText("Type Of Medicine      GenericName     BrandName     Price    ");
+
+        DELETE_TEXT.setBackground(new java.awt.Color(255, 0, 0));
+        DELETE_TEXT.setText("DELETE_TEXT");
+        DELETE_TEXT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DELETE_TEXTMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
         panel2.setLayout(panel2Layout);
         panel2Layout.setHorizontalGroup(
@@ -355,37 +371,42 @@ public class medicineFrame extends javax.swing.JFrame {
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panel2Layout.createSequentialGroup()
                         .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(medicine_BackButton)
-                            .addGroup(panel2Layout.createSequentialGroup()
-                                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(panel2Layout.createSequentialGroup()
+                                    .addGap(31, 31, 31)
                                     .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(panel2Layout.createSequentialGroup()
-                                            .addGap(31, 31, 31)
-                                            .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)))
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
-                                    .addComponent(jLabel2))
-                                .addGap(18, 18, 18)
-                                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(medicinename, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(totalCostMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(medicineNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(moneyPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(MONEYBALANCE, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(BUYMEDICINE)
-                                    .addComponent(MONEYPAYMENT))))
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(jLabel2)
+                            .addComponent(medicine_BackButton))
+                        .addGap(18, 18, 18)
+                        .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DELETE_TEXT)
+                            .addComponent(medicinename, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(totalCostMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(medicineNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(moneyPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MONEYBALANCE, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BUYMEDICINE)
+                            .addComponent(MONEYPAYMENT))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(medicinename, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -414,7 +435,9 @@ public class medicineFrame extends javax.swing.JFrame {
                         .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(MONEYBALANCE, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 50, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(DELETE_TEXT)
+                        .addGap(0, 16, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -505,6 +528,8 @@ public class medicineFrame extends javax.swing.JFrame {
 
     private void BUYMEDICINEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BUYMEDICINEMouseClicked
         // TODO add your handling code here:
+
+        //Getting for the medicine
         medicineStorageClass view = new medicineStorageClass();
         view.MedicineInformation();
         view.getMedicineList();
@@ -514,7 +539,6 @@ public class medicineFrame extends javax.swing.JFrame {
             int value = view.getMedicinePrice().get(medval);
             TotalMedicine = +Integer.parseInt(medicineNumber.getText()) * value;
             totalCostMedicine.setText(Integer.toString(TotalMedicine));
-
         } else {
             JOptionPane.showMessageDialog(null, "Invalid input/The medicine doesn't exist!");
             medicineFrame med = new medicineFrame();
@@ -525,9 +549,19 @@ public class medicineFrame extends javax.swing.JFrame {
 
     private void MONEYPAYMENTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MONEYPAYMENTMouseClicked
         // TODO add your handling code here:
-        int balance = Integer.parseInt(moneyPayment.getText())-TotalMedicine;
-        MONEYBALANCE.setText(Integer.toString(balance));
-        TotalMedicine=0;
+        loginClass log = new loginClass();
+        if (log.getCustomerAge() < 60) {
+            int balance = Integer.parseInt(moneyPayment.getText()) - TotalMedicine;
+            MONEYBALANCE.setText(Integer.toString(balance));
+            TotalMedicine = 0;
+            JOptionPane.showMessageDialog(null, "The customer is an Adult!");
+        } else {
+            int discounttotal = (int) (TotalMedicine - (TotalMedicine * .20));
+            int balance = Integer.parseInt(moneyPayment.getText()) - discounttotal;
+            MONEYBALANCE.setText(Integer.toString(balance));
+            TotalMedicine = 0;
+            JOptionPane.showMessageDialog(null, "The customer is a Senior Citizen!");
+        }
     }//GEN-LAST:event_MONEYPAYMENTMouseClicked
 
     private void MedicineListAreaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_MedicineListAreaPropertyChange
@@ -539,6 +573,15 @@ public class medicineFrame extends javax.swing.JFrame {
             MedicineListArea.append(med + "\n");
         }
     }//GEN-LAST:event_MedicineListAreaPropertyChange
+
+    private void DELETE_TEXTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DELETE_TEXTMouseClicked
+        // TODO add your handling code here:
+        medicinename.setText("");
+        medicineNumber.setText("");
+        totalCostMedicine.setText("");
+        moneyPayment.setText("");
+        MONEYBALANCE.setText("");
+    }//GEN-LAST:event_DELETE_TEXTMouseClicked
 
     /**
      * @param args the command line arguments
@@ -578,6 +621,7 @@ public class medicineFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BACKHOME;
     private javax.swing.JButton BUYMEDICINE;
+    private javax.swing.JButton DELETE_TEXT;
     private javax.swing.JButton LOGIN_BUTTON;
     private javax.swing.JButton LOGOUT;
     private javax.swing.JButton Login_Button;
@@ -607,6 +651,7 @@ public class medicineFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
+    private java.awt.Label label4;
     private javax.swing.JTextField medicineNumber;
     private javax.swing.JButton medicine_BackButton;
     private javax.swing.JTextField medicinename;

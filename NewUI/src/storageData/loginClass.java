@@ -1,4 +1,4 @@
-package pharmacyStorage;
+package storageData;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,12 +8,10 @@ import java.util.ArrayList;
 
 
 public class loginClass {
-
     ArrayList<String> Accounts= new ArrayList<String>();
     ArrayList<String> Passwords= new ArrayList<String>();
-    ArrayList<String> Username= new ArrayList<String>();
-    ArrayList<String> Age= new ArrayList<String>();
- 
+    ArrayList<Integer> Age= new ArrayList<Integer>();
+    public static int CustomerAge=0;
     public loginClass() {
         try {
             // create our mysql database connection
@@ -21,7 +19,6 @@ public class loginClass {
             String myUrl = "jdbc:mysql://localhost/pharmacyapp";
             Class.forName(myDriver);
             Connection conn = DriverManager.getConnection(myUrl, "root", "");
-
             // our SQL SELECT query. 
             // if you only need a few columns, specify them by name instead of using "*"
             String query = "SELECT * FROM customerprofile";
@@ -37,11 +34,13 @@ public class loginClass {
                 int id = rs.getInt("id");
                 String accs = rs.getString("Username");
                 String pass = rs.getString("Password");
+                int age = rs.getInt("Age");
                 if (Accounts.contains(accs) && Passwords.contains(pass)) {
                     continue;
                 } else {
                     Accounts.add(accs);
                     Passwords.add(pass);
+                    Age.add(age);
                 }
             }
             st.close();
@@ -49,6 +48,10 @@ public class loginClass {
             System.err.println("Got an exception! ");
             System.err.println(e.getMessage());
         }
+    }
+    public void customerAge(String username){
+      int age=Accounts.indexOf(username);
+      CustomerAge+=Age.get(age);  
     }
     
     public ArrayList<String> getAccounts() {
@@ -66,5 +69,22 @@ public class loginClass {
     public void setPasswords(ArrayList<String> Passwords) {
         this.Passwords = Passwords;
     }
-    
+
+    public ArrayList<Integer> getAge() {
+        return Age;
+    }
+
+    public void setAge(ArrayList<Integer> Age) {
+        this.Age = Age;
+    }
+
+    public static int getCustomerAge() {
+        return CustomerAge;
+    }
+
+    public static void setCustomerAge(int CustomerAge) {
+        loginClass.CustomerAge = CustomerAge;
+    }
+
+ 
 }

@@ -3,10 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/villahermosa_sd2022/Documents/NetBeansProjects/NewUI/src/newui/Login.java</file>
-            <file>file:/C:/Users/villahermosa_sd2022/Documents/NetBeansProjects/NewUI/src/newui/Register.java</file>
-            <file>file:/C:/Users/villahermosa_sd2022/Documents/NetBeansProjects/NewUI/src/newui/Pharmacist.java</file>
-            <file>file:/C:/Users/villahermosa_sd2022/Documents/NetBeansProjects/NewUI/src/newui/medicineFrame.java</file>
+            <file>file:/C:/Users/villahermosa_sd2022/Documents/NetBeansProjects/JavaProject/NewUI/src/newui/medicineFrame.java</file>
+            <file>file:/C:/Users/villahermosa_sd2022/Documents/NetBeansProjects/JavaProject/NewUI/src/newui/Pharmacist.java</file>
+            <file>file:/C:/Users/villahermosa_sd2022/Documents/NetBeansProjects/JavaProject/NewUI/src/newui/Login.java</file>
+            <file>file:/C:/Users/villahermosa_sd2022/Documents/NetBeansProjects/JavaProject/NewUI/src/storageData/loginClass.java</file>
+            <file>file:/C:/Users/villahermosa_sd2022/Documents/NetBeansProjects/JavaProject/NewUI/src/storageData/registerClass.java</file>
+            <file>file:/C:/Users/villahermosa_sd2022/Documents/NetBeansProjects/JavaProject/NewUI/src/newui/Register.java</file>
+            <file>file:/C:/Users/villahermosa_sd2022/Documents/NetBeansProjects/JavaProject/NewUI/src/storageData/medicineStorageClass.java</file>
         </group>
     </open-files>
 </project-private>

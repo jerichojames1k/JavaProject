@@ -5,8 +5,11 @@
  */
 package newui;
 
+import java.util.ArrayList;
+import java.util.stream.Stream;
 import javax.swing.JOptionPane;
-import pharmacyStorage.medicineStorageClass;
+//import pharmacyStorage.medicineStorageClass;
+import storageData.medicineStorageClass;
 
 /**
  *
@@ -48,7 +51,7 @@ public class Pharmacist extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jButton10 = new javax.swing.JButton();
-        label6 = new java.awt.Label();
+        label9 = new java.awt.Label();
         jPanel1 = new javax.swing.JPanel();
         panel2 = new java.awt.Panel();
         Admin_BackButton = new javax.swing.JButton();
@@ -155,7 +158,7 @@ public class Pharmacist extends javax.swing.JFrame {
         jButton10.setBackground(new java.awt.Color(255, 153, 255));
         jButton10.setText("deleteMedicine");
 
-        label6.setText("label6");
+        label9.setText("label6");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -318,6 +321,7 @@ public class Pharmacist extends javax.swing.JFrame {
             }
         });
 
+        ListOfInformation.setEditable(false);
         ListOfInformation.setColumns(20);
         ListOfInformation.setRows(5);
         jScrollPane1.setViewportView(ListOfInformation);
@@ -536,18 +540,18 @@ public class Pharmacist extends javax.swing.JFrame {
     }//GEN-LAST:event_viewCustomerOrderMouseClicked
 
     private void viewMedicineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewMedicineMouseClicked
-        // TODO add your handling code here:
+        // TODO add your handling code here
         medicineStorageClass view = new medicineStorageClass();
         view.MedicineInformation();
         view.getMedicines();
-        for (String i : view.getMedicines()) {
-            if( view.getMedicines().contains(i)){
-                continue;
+        for (String med : view.getMedicines()){
+            if (ListOfInformation.getText().equals(med)) {
+               ListOfInformation.append(med + "\n");
+            } else {
+              continue;
             }
-            else{
-              ListOfInformation.append(i+"\n");  
-            }        
         }
+
     }//GEN-LAST:event_viewMedicineMouseClicked
 
     private void ADDMEDICINEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ADDMEDICINEMouseClicked
@@ -634,6 +638,7 @@ public class Pharmacist extends javax.swing.JFrame {
     private java.awt.Label label6;
     private java.awt.Label label7;
     private java.awt.Label label8;
+    private java.awt.Label label9;
     private java.awt.Panel panel2;
     private java.awt.Panel panel4;
     private java.awt.Panel panel5;

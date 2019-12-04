@@ -2,7 +2,7 @@
 package newui;
 
 import javax.swing.JOptionPane;
-import pharmacyStorage.loginClass;
+import storageData.loginClass;
 
 
 public class Login extends javax.swing.JFrame {
@@ -360,11 +360,11 @@ public class Login extends javax.swing.JFrame {
         log.getPasswords();
         
         if (log.getAccounts().contains(Login_UserName.getText()) && log.getPasswords().contains(Login_Passwrd.getText())) {
+            log.customerAge(Login_UserName.getText());
             JOptionPane.showMessageDialog(null, "Successfully Login!");
             medicineFrame med= new medicineFrame();
             dispose();
             med.setVisible(true);
-
         } else if (!log.getAccounts().contains(Login_UserName.getText()) && log.getPasswords().contains(Login_Passwrd.getText())) {
             JOptionPane.showMessageDialog(null, "Wrong Password/Username");
             Login_UserName.setText("");

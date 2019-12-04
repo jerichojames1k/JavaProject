@@ -168,40 +168,42 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jScrollPane3" alignment="1" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="medicine_BackButton" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel7" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="medicinename" min="-2" pref="183" max="-2" attributes="0"/>
-                                      <Component id="totalCostMedicine" min="-2" pref="183" max="-2" attributes="0"/>
-                                      <Component id="medicineNumber" alignment="0" min="-2" pref="183" max="-2" attributes="0"/>
-                                      <Component id="moneyPayment" alignment="0" min="-2" pref="183" max="-2" attributes="0"/>
-                                      <Component id="MONEYBALANCE" alignment="0" min="-2" pref="183" max="-2" attributes="0"/>
-                                      <Component id="BUYMEDICINE" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="MONEYPAYMENT" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel7" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="medicine_BackButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="DELETE_TEXT" min="-2" max="-2" attributes="0"/>
+                              <Component id="medicinename" min="-2" pref="183" max="-2" attributes="0"/>
+                              <Component id="totalCostMedicine" min="-2" pref="183" max="-2" attributes="0"/>
+                              <Component id="medicineNumber" alignment="0" min="-2" pref="183" max="-2" attributes="0"/>
+                              <Component id="moneyPayment" alignment="0" min="-2" pref="183" max="-2" attributes="0"/>
+                              <Component id="MONEYBALANCE" alignment="0" min="-2" pref="183" max="-2" attributes="0"/>
+                              <Component id="BUYMEDICINE" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="MONEYPAYMENT" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="label4" min="-2" pref="390" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -209,9 +211,11 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <Component id="jPanel5" min="-2" pref="39" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jScrollPane3" min="-2" pref="228" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="label4" min="-2" pref="20" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                  <Component id="jScrollPane3" min="-2" pref="221" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="jLabel1" min="-2" pref="31" max="-2" attributes="0"/>
                       <Component id="medicinename" min="-2" pref="47" max="-2" attributes="0"/>
@@ -246,7 +250,9 @@
                               <Component id="MONEYBALANCE" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                               <Component id="jLabel7" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="50" max="32767" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="DELETE_TEXT" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -472,6 +478,7 @@
           <SubComponents>
             <Component class="javax.swing.JTextArea" name="MedicineListArea">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
               </Properties>
@@ -555,6 +562,22 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Your Money Change:"/>
           </Properties>
+        </Component>
+        <Component class="java.awt.Label" name="label4">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Type Of Medicine      GenericName     BrandName     Price    "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="DELETE_TEXT">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="DELETE_TEXT"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="DELETE_TEXTMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

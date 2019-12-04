@@ -4,8 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
-import pharmacyStorage.registerClass;
+//import pharmacyStorage.registerClass;
 //import newui.dataStorage;
+import storageData.registerClass;
 
 public class Register extends javax.swing.JFrame {
 
