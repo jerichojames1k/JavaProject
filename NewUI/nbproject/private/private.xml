@@ -4,10 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/villahermosa_sd2022/Documents/NetBeansProjects/JavaProject/NewUI/src/newui/medicineFrame.java</file>
+            <file>file:/C:/Users/villahermosa_sd2022/Documents/NetBeansProjects/JavaProject/NewUI/src/storageData/deletedMedicine.java</file>
             <file>file:/C:/Users/villahermosa_sd2022/Documents/NetBeansProjects/JavaProject/NewUI/src/newui/Pharmacist.java</file>
+            <file>file:/C:/Users/villahermosa_sd2022/Documents/NetBeansProjects/JavaProject/NewUI/src/newui/Admin.java</file>
             <file>file:/C:/Users/villahermosa_sd2022/Documents/NetBeansProjects/JavaProject/NewUI/src/newui/Login.java</file>
             <file>file:/C:/Users/villahermosa_sd2022/Documents/NetBeansProjects/JavaProject/NewUI/src/storageData/loginClass.java</file>
-            <file>file:/C:/Users/villahermosa_sd2022/Documents/NetBeansProjects/JavaProject/NewUI/src/storageData/registerClass.java</file>
+            <file>file:/C:/Users/villahermosa_sd2022/Documents/NetBeansProjects/JavaProject/NewUI/src/storageData/customerOrder.java</file>
             <file>file:/C:/Users/villahermosa_sd2022/Documents/NetBeansProjects/JavaProject/NewUI/src/newui/Register.java</file>
             <file>file:/C:/Users/villahermosa_sd2022/Documents/NetBeansProjects/JavaProject/NewUI/src/storageData/medicineStorageClass.java</file>
         </group>

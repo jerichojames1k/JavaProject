@@ -6,6 +6,8 @@
 package newui;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import storageData.customerOrder;
 //import pharmacyStorage.medicineStorageClass;
 //import storageData.medicineStorageClass;
 import storageData.loginClass;
@@ -47,6 +49,9 @@ public class medicineFrame extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
+        label4 = new java.awt.Label();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        MedicineListArea = new javax.swing.JTextArea();
         panel2 = new java.awt.Panel();
         medicine_BackButton = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
@@ -60,8 +65,6 @@ public class medicineFrame extends javax.swing.JFrame {
         REGISTER_BUTTON = new javax.swing.JButton();
         checkbox1 = new java.awt.Checkbox();
         checkbox2 = new java.awt.Checkbox();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        MedicineListArea = new javax.swing.JTextArea();
         BUYMEDICINE = new javax.swing.JButton();
         medicinename = new javax.swing.JTextField();
         medicineNumber = new javax.swing.JTextField();
@@ -74,8 +77,9 @@ public class medicineFrame extends javax.swing.JFrame {
         MONEYPAYMENT = new javax.swing.JButton();
         MONEYBALANCE = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        label4 = new java.awt.Label();
         DELETE_TEXT = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        medicinelist = new javax.swing.JTable();
 
         Login_UserName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,6 +162,18 @@ public class medicineFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 42, Short.MAX_VALUE)
         );
+
+        label4.setText("Type Of Medicine      GenericName     BrandName     Price    ");
+
+        MedicineListArea.setEditable(false);
+        MedicineListArea.setColumns(20);
+        MedicineListArea.setRows(5);
+        MedicineListArea.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                MedicineListAreaPropertyChange(evt);
+            }
+        });
+        jScrollPane3.setViewportView(MedicineListArea);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -302,16 +318,6 @@ public class medicineFrame extends javax.swing.JFrame {
 
         checkbox2.setLabel("checkbox2");
 
-        MedicineListArea.setEditable(false);
-        MedicineListArea.setColumns(20);
-        MedicineListArea.setRows(5);
-        MedicineListArea.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                MedicineListAreaPropertyChange(evt);
-            }
-        });
-        jScrollPane3.setViewportView(MedicineListArea);
-
         BUYMEDICINE.setBackground(new java.awt.Color(51, 255, 51));
         BUYMEDICINE.setText("BUY");
         BUYMEDICINE.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -349,8 +355,6 @@ public class medicineFrame extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Your Money Change:");
 
-        label4.setText("Type Of Medicine      GenericName     BrandName     Price    ");
-
         DELETE_TEXT.setBackground(new java.awt.Color(255, 0, 0));
         DELETE_TEXT.setText("DELETE_TEXT");
         DELETE_TEXT.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -358,6 +362,38 @@ public class medicineFrame extends javax.swing.JFrame {
                 DELETE_TEXTMouseClicked(evt);
             }
         });
+
+        medicinelist.setBackground(new java.awt.Color(255, 153, 255));
+        medicinelist.setBorder(new javax.swing.border.MatteBorder(null));
+        medicinelist.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "TypeOfMedicine", "GenericName", "BrandName", "Price"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        medicinelist.setSelectionBackground(new java.awt.Color(102, 153, 255));
+        medicinelist.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                medicinelistPropertyChange(evt);
+            }
+        });
+        jScrollPane4.setViewportView(medicinelist);
+        if (medicinelist.getColumnModel().getColumnCount() > 0) {
+            medicinelist.getColumnModel().getColumn(0).setResizable(false);
+            medicinelist.getColumnModel().getColumn(1).setResizable(false);
+            medicinelist.getColumnModel().getColumn(2).setResizable(false);
+            medicinelist.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
         panel2.setLayout(panel2Layout);
@@ -368,45 +404,35 @@ public class medicineFrame extends javax.swing.JFrame {
             .addGroup(panel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panel2Layout.createSequentialGroup()
-                        .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panel2Layout.createSequentialGroup()
+                            .addGap(31, 31, 31)
                             .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(panel2Layout.createSequentialGroup()
-                                    .addGap(31, 31, 31)
-                                    .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)))
-                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addComponent(jLabel2)
-                            .addComponent(medicine_BackButton))
-                        .addGap(18, 18, 18)
-                        .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(DELETE_TEXT)
-                            .addComponent(medicinename, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(totalCostMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(medicineNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(moneyPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(MONEYBALANCE, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BUYMEDICINE)
-                            .addComponent(MONEYPAYMENT))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)))
+                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jLabel2)
+                    .addComponent(medicine_BackButton))
+                .addGap(18, 18, 18)
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DELETE_TEXT)
+                    .addComponent(medicinename, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(totalCostMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(medicineNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(moneyPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MONEYBALANCE, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BUYMEDICINE)
+                    .addComponent(MONEYPAYMENT))
+                .addContainerGap(119, Short.MAX_VALUE))
+            .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE))
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(267, 267, 267)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(medicinename, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -440,6 +466,11 @@ public class medicineFrame extends javax.swing.JFrame {
                         .addGap(0, 16, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel2Layout.createSequentialGroup()
+                    .addGap(45, 45, 45)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(487, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -532,10 +563,9 @@ public class medicineFrame extends javax.swing.JFrame {
         //Getting for the medicine
         medicineStorageClass view = new medicineStorageClass();
         view.MedicineInformation();
-        view.getMedicineList();
         view.getMedicinePrice();
-        if (view.getMedicineList().contains(medicinename.getText())) {
-            int medval = view.getMedicineList().indexOf(medicinename.getText());
+        if (view.getGenericName().contains(medicinename.getText())) {
+            int medval = view.getGenericName().indexOf(medicinename.getText());
             int value = view.getMedicinePrice().get(medval);
             TotalMedicine = +Integer.parseInt(medicineNumber.getText()) * value;
             totalCostMedicine.setText(Integer.toString(TotalMedicine));
@@ -549,7 +579,9 @@ public class medicineFrame extends javax.swing.JFrame {
 
     private void MONEYPAYMENTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MONEYPAYMENTMouseClicked
         // TODO add your handling code here:
-        loginClass log = new loginClass();
+        loginClass log=new loginClass();
+        log.getCustomerAge();
+        
         if (log.getCustomerAge() < 60) {
             int balance = Integer.parseInt(moneyPayment.getText()) - TotalMedicine;
             MONEYBALANCE.setText(Integer.toString(balance));
@@ -562,16 +594,17 @@ public class medicineFrame extends javax.swing.JFrame {
             TotalMedicine = 0;
             JOptionPane.showMessageDialog(null, "The customer is a Senior Citizen!");
         }
+        
+        String med = medicinename.getText();
+        int numberofmed = Integer.parseInt(medicineNumber.getText());
+        int totalmed = Integer.parseInt(totalCostMedicine.getText());
+        int moneypayment = Integer.parseInt(moneyPayment.getText());
+        int moneybalance = Integer.parseInt(MONEYBALANCE.getText());
+        customerOrder order = new customerOrder(log.getCustomers().get(0),med, numberofmed, totalmed, moneypayment, moneybalance);
     }//GEN-LAST:event_MONEYPAYMENTMouseClicked
 
     private void MedicineListAreaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_MedicineListAreaPropertyChange
-        // TODO add your handling code here:
-        medicineStorageClass view = new medicineStorageClass();
-        view.MedicineInformation();
-        view.getMedicines();
-        for (String med : view.getMedicines()) {
-            MedicineListArea.append(med + "\n");
-        }
+
     }//GEN-LAST:event_MedicineListAreaPropertyChange
 
     private void DELETE_TEXTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DELETE_TEXTMouseClicked
@@ -582,6 +615,16 @@ public class medicineFrame extends javax.swing.JFrame {
         moneyPayment.setText("");
         MONEYBALANCE.setText("");
     }//GEN-LAST:event_DELETE_TEXTMouseClicked
+
+    private void medicinelistPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_medicinelistPropertyChange
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) medicinelist.getModel();
+        medicineStorageClass view = new medicineStorageClass();
+        view.MedicineInformation();
+        for (int num = 0; num < view.getGenericName().size(); num++) {
+            model.addRow(new Object[]{view.getTypeofMedicine().get(num), view.getGenericName().get(num), view.getBrandName().get(num), view.getMedicinePrice().get(num)});
+        }
+    }//GEN-LAST:event_medicinelistPropertyChange
 
     /**
      * @param args the command line arguments
@@ -650,10 +693,12 @@ public class medicineFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
     private java.awt.Label label4;
     private javax.swing.JTextField medicineNumber;
     private javax.swing.JButton medicine_BackButton;
+    public javax.swing.JTable medicinelist;
     private javax.swing.JTextField medicinename;
     private javax.swing.JTextField moneyPayment;
     private java.awt.Panel panel2;

@@ -11,8 +11,7 @@ import storageData.registerClass;
 public class Register extends javax.swing.JFrame {
 
    
-
-    public Register() {
+    public Register(){
         initComponents();
     }
 

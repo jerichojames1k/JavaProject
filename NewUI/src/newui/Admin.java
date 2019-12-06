@@ -5,6 +5,13 @@
  */
 package newui;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import storageData.customerOrder;
+import storageData.deletedMedicine;
+import storageData.loginClass;
+import storageData.medicineStorageClass;
+
 /**
  *
  * @author villahermosa_sd2022
@@ -54,6 +61,7 @@ public class Admin extends javax.swing.JFrame {
         medicineId = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         deleteMedicineName = new javax.swing.JButton();
+        LABELMEDICINE = new java.awt.Label();
 
         jPanel1.setBackground(new java.awt.Color(102, 255, 102));
 
@@ -259,7 +267,13 @@ public class Admin extends javax.swing.JFrame {
                 viewCustomerOrderMouseClicked(evt);
             }
         });
+        viewCustomerOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewCustomerOrderActionPerformed(evt);
+            }
+        });
 
+        VIEWLISTOFINFORMATION.setEditable(false);
         VIEWLISTOFINFORMATION.setColumns(20);
         VIEWLISTOFINFORMATION.setRows(5);
         jScrollPane1.setViewportView(VIEWLISTOFINFORMATION);
@@ -283,6 +297,8 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
+        LABELMEDICINE.setBackground(new java.awt.Color(102, 255, 51));
+
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
         panel2.setLayout(panel2Layout);
         panel2Layout.setHorizontalGroup(
@@ -290,44 +306,52 @@ public class Admin extends javax.swing.JFrame {
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel2Layout.createSequentialGroup()
                         .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
                             .addGroup(panel2Layout.createSequentialGroup()
-                                .addComponent(Admin_BackButton)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(panel2Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(viewCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(viewMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
-                        .addComponent(viewCustomerOrder)
-                        .addGap(50, 50, 50))))
-            .addGroup(panel2Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(medicineId, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(deleteMedicineName)
-                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(panel2Layout.createSequentialGroup()
+                                        .addGap(70, 70, 70)
+                                        .addComponent(jLabel1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(medicineId, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(deleteMedicineName))
+                                    .addGroup(panel2Layout.createSequentialGroup()
+                                        .addGap(35, 35, 35)
+                                        .addComponent(viewCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(viewMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(56, 56, 56)
+                                .addComponent(viewCustomerOrder))
+                            .addGroup(panel2Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(Admin_BackButton)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(LABELMEDICINE, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89))
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LABELMEDICINE, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(viewCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(viewCustomerOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(viewMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(99, 99, 99)
+                    .addComponent(viewMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewCustomerOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(67, 67, 67)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(medicineId, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
@@ -394,27 +418,64 @@ public class Admin extends javax.swing.JFrame {
 
     private void viewCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewCustomerMouseClicked
         // TODO add your handling code here:
-        System.out.println("You viewed a cutomer!");
-        VIEWLISTOFINFORMATION.setText("You viewed a cutomer!");
+        ArrayList<String> Customers = new ArrayList<String>();
+        LABELMEDICINE.setText("                                       The List of Customers");
+        VIEWLISTOFINFORMATION.setText("");
+        loginClass log = new loginClass();
+        for (String customer : log.getCustomerName()) {
+            if (Customers.contains(customer)) {
+                continue;
+            } else {
+                Customers.add(customer);
+                VIEWLISTOFINFORMATION.append(customer + "\n");
+            }
+        }
     }//GEN-LAST:event_viewCustomerMouseClicked
 
     private void viewCustomerOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewCustomerOrderMouseClicked
         // TODO add your handling code here:
-        System.out.println("You viewCustomerOrder!");
-        VIEWLISTOFINFORMATION.setText("You viewed a cutomerorder!");
+        ArrayList<String> Orders = new ArrayList<String>();
+        LABELMEDICINE.setText("                                       The Orders of Customer");
+        VIEWLISTOFINFORMATION.setText("");
+        customerOrder customer = new customerOrder();
+        customer.retrieveCustomerOrder();
+        for (String order : customer.getRetriveOrder()) {
+            if (Orders.contains(order)) {
+                continue;
+            } else {
+                Orders.add(order);
+                VIEWLISTOFINFORMATION.append(order+ "\n");
+            }
+        }
     }//GEN-LAST:event_viewCustomerOrderMouseClicked
 
     private void viewMedicineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewMedicineMouseClicked
         // TODO add your handling code here:
-        System.out.println("You clicked a customerviews!!");
-        VIEWLISTOFINFORMATION.setText("You viewed a cutomerviews!");
+        ArrayList<String> Medicines = new ArrayList<String>();
+        medicineStorageClass view = new medicineStorageClass();
+        view.MedicineInformation();
+        LABELMEDICINE.setText("                                       The List of Medicines");
+        VIEWLISTOFINFORMATION.setText("");
+        for (String med : view.getDeletedMedicines()) {
+            if (Medicines.contains(med)) {
+                continue;
+            } else {
+                Medicines.add(med);
+                VIEWLISTOFINFORMATION.append(med + "\n");
+            }
+        }
     }//GEN-LAST:event_viewMedicineMouseClicked
 
     private void deleteMedicineNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMedicineNameMouseClicked
         // TODO add your handling code here:
-       System.out.println("You deleted a medicine!!!");
-       VIEWLISTOFINFORMATION.setText("You viewed a dleted medicine!");
+        deletedMedicine del = new deletedMedicine();
+        del.getId(medicineId.getText());
+        medicineId.setText(" ");
     }//GEN-LAST:event_deleteMedicineNameMouseClicked
+
+    private void viewCustomerOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewCustomerOrderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_viewCustomerOrderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -454,6 +515,7 @@ public class Admin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Admin_BackButton;
     private javax.swing.JLabel BACKHOME;
+    private java.awt.Label LABELMEDICINE;
     private javax.swing.JButton LOGIN_BUTTON;
     private javax.swing.JButton REGISTER_BUTTON;
     private javax.swing.JTextArea VIEWLISTOFINFORMATION;

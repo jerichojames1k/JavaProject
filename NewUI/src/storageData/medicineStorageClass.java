@@ -11,8 +11,12 @@ import java.util.List;
 public class medicineStorageClass {
 
     public ArrayList<String> Medicines = new ArrayList<String>();
-    public ArrayList<String> MedicineList = new ArrayList<String>();
+    public ArrayList<String> DeletedMedicines= new ArrayList<String>();
+    public ArrayList<String> TypeofMedicine= new ArrayList<String>();
+    public ArrayList<String> GenericName = new ArrayList<String>();
+    public ArrayList<String> BrandName = new ArrayList<String>();
     public ArrayList<Integer> MedicinePrice = new ArrayList<Integer>();
+    
     public String typeofmedicine;
     public String medicbrandname;
     public String medicgenericname;
@@ -90,17 +94,13 @@ public class medicineStorageClass {
             String myUrl = "jdbc:mysql://localhost/pharmacyapp";
             Class.forName(myDriver);
             Connection conn = DriverManager.getConnection(myUrl, "root", "");
-
             // our SQL SELECT query. 
             // if you only need a few columns, specify them by name instead of using "*"
             String query = "SELECT * FROM medicineinformation";
-
             // create the java statement
             Statement st = conn.createStatement();
-
             // execute the query, and get a java resultset
             ResultSet rs = st.executeQuery(query);
-
             // iterate through the java resultset
             while (rs.next()) {
                 int id = rs.getInt("id");
@@ -109,8 +109,11 @@ public class medicineStorageClass {
                 String gen = rs.getString("medicgenericname");
                 int value = rs.getInt("medicineprice");
                 String price = Integer.toString(value);
-                Medicines.add("\t" + type + "\t" + gen + "\t" + brand + "\t" + price);
-                MedicineList.add(gen);
+                Medicines.add("TypeOfMedicine:"+type +"\t"+"GenericName:"+ gen +"\t"+"BrandName:"+ brand +"\t"+"Price:"+ price+"\n");
+                DeletedMedicines.add("MedicineId:"+id+"\t"+"TypeOfMedicine:"+type +"\t"+"GenericName:"+ gen +"\t"+"BrandName:"+ brand +"\t"+"Price:"+ price+"\n");
+                TypeofMedicine.add(type);
+                GenericName.add(gen);
+                BrandName.add(brand);
                 MedicinePrice.add(value);
             }
             st.close();
@@ -128,14 +131,6 @@ public class medicineStorageClass {
         this.Medicines = Medicines;
     }
 
-    public ArrayList<String> getMedicineList() {
-        return MedicineList;
-    }
-
-    public void setMedicineList(ArrayList<String> MedicineList) {
-        this.MedicineList = MedicineList;
-    }
-
     public ArrayList<Integer> getMedicinePrice() {
         return MedicinePrice;
     }
@@ -143,5 +138,38 @@ public class medicineStorageClass {
     public void setMedicinePrice(ArrayList<Integer> MedicinePrice) {
         this.MedicinePrice = MedicinePrice;
     }
+
+    public ArrayList<String> getTypeofMedicine() {
+        return TypeofMedicine;
+    }
+
+    public void setTypeofMedicine(ArrayList<String> TypeofMedicine) {
+        this.TypeofMedicine = TypeofMedicine;
+    }
+
+    public ArrayList<String> getGenericName() {
+        return GenericName;
+    }
+
+    public void setGenericName(ArrayList<String> GenericName) {
+        this.GenericName = GenericName;
+    }
+
+    public ArrayList<String> getBrandName() {
+        return BrandName;
+    }
+
+    public void setBrandName(ArrayList<String> BrandName) {
+        this.BrandName = BrandName;
+    }
+
+    public ArrayList<String> getDeletedMedicines() {
+        return DeletedMedicines;
+    }
+
+    public void setDeletedMedicines(ArrayList<String> DeletedMedicines) {
+        this.DeletedMedicines = DeletedMedicines;
+    }
+    
 
 }
